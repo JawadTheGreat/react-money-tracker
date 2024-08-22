@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+:root {
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Lato, sans-serif;
+}
+
+body {
+  background-color: rgb(248, 248, 248);
+}
+
+.container {
+  max-width: 25em;
+  margin: 3em auto;
+}
+
+.app-header {
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.balance {
+  font-size: 2.5em;
+}
+
+.income-expense {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 1.5em;
+  box-shadow: var(--box-shadow);
+  background-color: #fff;
+}
+
+.income,
+.expense {
+  text-align: center;
+  line-height: 1.5em;
+}
+
+.income {
+  border-right: 1px solid rgb(220, 219, 219);
+  padding-right: 3em;
+}
+
+.expense {
+  padding-left: 3em;
+}
+
+.total-income {
+  font-weight: 100;
+  color: #00d524;
+}
+
+.total-expense {
+  font-weight: 100;
+  color: red;
+}
+
+.history h3 {
+  font-size: 1.3em;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid rgb(191, 191, 191);
+}
+
+.transaction-history {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7em;
+  margin: 1em 0;
+  box-shadow: var(--box-shadow);
+  background-color: #fff;
+  list-style: none;
+}
+
+.transaction-history:hover {
+  .delete-btn {
+    opacity: 1;
+  }
+}
+
+.plus {
+  border-right: 5px solid #00d524;
+}
+
+.minus {
+  border-right: 5px solid red;
+}
+
+.delete-btn {
+  position: absolute;
+  left: -1.3em;
+  padding: 3px;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgb(251, 44, 44);
+  font-size: 1em;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#form > h3 {
+  font-size: 1.3em;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid rgb(191, 191, 191);
+}
+
+#form > label {
+  display: block;
+  font-size: 1.1em;
+  padding-top: 0.8em;
+  padding-bottom: 0.5em;
+}
+
+#form > input {
+  display: block;
+  border: 1px solid rgb(200, 200, 200);
+  background-color: #fff;
+  width: 100%;
+  height: 2.5em;
+  padding: 1em;
+  font-size: 1em;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  height: 2.5em;
+  margin-top: 1em;
+  font-size: 1em;
+  background-color: rgb(135, 135, 253);
+  color: #fff;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+}
