@@ -2,11 +2,7 @@ import { createContext, useReducer } from "react";
 import PropTypes from "prop-types";
 
 let initialState = {
-  transactions: [
-    { id: 1524, text: "Income", amount: +500 },
-    { id: 2757, text: "Rent", amount: -200 },
-    { id: 3755, text: "Books", amount: -30 },
-  ],
+  transactions: [],
 };
 
 let reducer = (state, action) => {
@@ -15,8 +11,15 @@ let reducer = (state, action) => {
       return {
         ...state,
         transactions: state.transactions.filter((transaction) => {
-          transaction.id !== action.payload;
+          return transaction.id !== action.payload;
         }),
+      };
+    }
+
+    case "ADD_TRANSACTION": {
+      return {
+        ...state,
+        transactions: [action.payload, ...state.transactions],
       };
     }
 
@@ -30,17 +33,28 @@ export const GlobalContext = createContext(initialState);
 export default function GlobalProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  let deleteTransaction = (id) => {
+  const deleteTransaction = (id) => {
     dispatch({
       type: "DELETE_TRANSACTION",
       payload: id,
     });
   };
 
+  const addTransaction = (transaction) => {
+    dispatch({
+      type: "ADD_TRANSACTION",
+      payload: transaction,
+    });
+  };
+
   return (
     <>
       <GlobalContext.Provider
-        value={{ transactions: state.transactions, deleteTransaction }}
+        value={{
+          transactions: state.transactions,
+          deleteTransaction,
+          addTransaction,
+        }}
       >
         {children}
       </GlobalContext.Provider>

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { GlobalContext } from "../context/GlobalProvider";
+import { GlobalContext } from "../context/GlobalState";
 import { useContext } from "react";
 
 export default function Transaction({ transaction }) {
